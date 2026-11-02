@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 340" width="940" height="340" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8aa4c8"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="940" height="340" rx="16" fill="#0f1726"/>
+
+  <!-- title -->
+  <text x="30" y="44" font-size="22" font-weight="700" fill="#e8eef8">Satellite Selfie</text>
+  <text x="200" y="44" font-size="15" fill="#8aa4c8">daily pipeline</text>
+
+  <!-- arrows -->
+  <line x1="210" y1="190" x2="243" y2="190" stroke="#8aa4c8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="425" y1="190" x2="458" y2="190" stroke="#8aa4c8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M640,190 C670,190 670,125 698,125" fill="none" stroke="#8aa4c8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M640,190 C670,190 670,255 698,255" fill="none" stroke="#8aa4c8" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- 1. GitHub Actions -->
+  <rect x="30" y="145" width="180" height="90" rx="12" fill="#1b2638" stroke="#3a4a63" stroke-width="1.5"/>
+  <circle cx="30" cy="145" r="14" fill="#6e7fff"/>
+  <text x="30" y="150" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="120" y="184" font-size="16" font-weight="700" fill="#e8eef8" text-anchor="middle">GitHub Actions</text>
+  <text x="120" y="207" font-size="13" fill="#9fb0c8" text-anchor="middle">Daily schedule</text>
+
+  <!-- 2. NASA GIBS -->
+  <rect x="245" y="145" width="180" height="90" rx="12" fill="#1b2638" stroke="#3a4a63" stroke-width="1.5"/>
+  <circle cx="245" cy="145" r="14" fill="#e0533d"/>
+  <text x="245" y="150" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="335" y="184" font-size="16" font-weight="700" fill="#e8eef8" text-anchor="middle">NASA GIBS</text>
+  <text x="335" y="207" font-size="13" fill="#9fb0c8" text-anchor="middle">Terra MODIS true color</text>
+
+  <!-- 3. Verify -->
+  <rect x="460" y="145" width="180" height="90" rx="12" fill="#1b2638" stroke="#3a4a63" stroke-width="1.5"/>
+  <circle cx="460" cy="145" r="14" fill="#e3a72f"/>
+  <text x="460" y="150" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="550" y="184" font-size="16" font-weight="700" fill="#e8eef8" text-anchor="middle">Verify</text>
+  <text x="550" y="207" font-size="13" fill="#9fb0c8" text-anchor="middle">Is it really an image?</text>
+  <text x="550" y="262" font-size="12" fill="#d98a7a" text-anchor="middle">XML error → stop and report</text>
+
+  <!-- 4a. Telegram -->
+  <rect x="700" y="80" width="200" height="90" rx="12" fill="#1b2638" stroke="#3a4a63" stroke-width="1.5"/>
+  <circle cx="700" cy="80" r="14" fill="#2aa3d8"/>
+  <text x="700" y="85" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="800" y="119" font-size="16" font-weight="700" fill="#e8eef8" text-anchor="middle">Telegram</text>
+  <text x="800" y="142" font-size="13" fill="#9fb0c8" text-anchor="middle">Sent to phone, full res</text>
+
+  <!-- 4b. Google Drive -->
+  <rect x="700" y="210" width="200" height="90" rx="12" fill="#1b2638" stroke="#3a4a63" stroke-width="1.5"/>
+  <circle cx="700" cy="210" r="14" fill="#34a853"/>
+  <text x="700" y="215" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+  <text x="800" y="249" font-size="16" font-weight="700" fill="#e8eef8" text-anchor="middle">Google Drive</text>
+  <text x="800" y="272" font-size="13" fill="#9fb0c8" text-anchor="middle">Archived to Selfies folder</text>
+</svg>

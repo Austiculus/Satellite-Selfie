@@ -1,5 +1,33 @@
+"""
+Satellite Selfie
+================
+Fetches a daily true-color satellite image of Southeast/Central Texas
+from NASA GIBS (Terra MODIS Corrected Reflectance), uploads it to
+Google Drive, and sends it to Telegram.
+
+Flow:
+    1. Request yesterday's image from the GIBS WMS endpoint
+    2. Verify the response is an image (WMS can return XML errors with HTTP 200)
+    3. Send the image to Telegram as a document (full resolution)
+    4. Upload the image to a Google Drive folder
+
+Configuration (environment variables, or a local .env file):
+    TELEGRAM_TOKEN      Telegram bot token from @BotFather
+    TELEGRAM_CHAT_ID    Chat ID to send the image to
+    token.json          Google OAuth token (drive.file scope)
+
+Runs daily via GitHub Actions (.github/workflows/selfie.yml).
+
+Imagery: NASA Global Imagery Browse Services (GIBS), part of NASA's
+Earth Science Data and Information System (ESDIS).
+"""
+
+
+
 import requests
 from datetime import date, timedelta
+
+from dotenv import load_dotenv
 
 import io
 import os.path
@@ -17,13 +45,13 @@ params = {
     "SERVICE": "WMS", "REQUEST": "GetMap", "VERSION": "1.3.0",
     "LAYERS": "MODIS_Terra_CorrectedReflectance_TrueColor",
     "CRS": "EPSG:4326",
-    "BBOX": "28.7233,-101.6389,33.9862,-92.9241",   # minLat,minLon,maxLat,maxLon (Houston + Galveston Bay)
+    "BBOX": "28.7233,-101.6389,33.9862,-92.9241",   # minLat,minLon,maxLat,maxLon
     "WIDTH": 3872, "HEIGHT":2338,
     "FORMAT": "image/jpeg", "TIME": day,
 }
-
-chat_id = "9163988908" #Zine
-token = "9297420739:AAG5zwylRU56Vt_bZGrE9BUqbx64Hlxw79M"
+load_dotenv()
+chat_id = os.environ["TELEGRAM_CHAT_ID"] #Zine
+token = os.environ["TELEGRAM_TOKEN"]
 message_caption = f"Satellite Selfie {day}!"
 def send_telegram(data):
     r = requests.post(

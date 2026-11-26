@@ -50,17 +50,20 @@ params = {
     "FORMAT": "image/jpeg", "TIME": day,
 }
 load_dotenv()
-chat_id = os.environ["TELEGRAM_CHAT_ID"] #Zine
-token = os.environ["TELEGRAM_TOKEN"]
-message_caption = f"Satellite Selfie {day}!"
-def send_telegram(data):
-    r = requests.post(
-        f"https://api.telegram.org/bot{token}/sendDocument",
-        data={"chat_id": chat_id,
-              "caption": message_caption,
-              },
-        files={"document": (f"Houston_{day}.jpeg", data)},
-        )
+
+# THIS USED TO WORK WITH A TELEGROM BOT BUT HAS SINCE BEEN CHANGED
+
+#chat_id = os.environ["TELEGRAM_CHAT_ID"] #Zine
+#token = os.environ["TELEGRAM_TOKEN"]
+#message_caption = f"Satellite Selfie {day}!"
+#def send_telegram(data):
+#    r = requests.post(
+#        f"https://api.telegram.org/bot{token}/sendDocument",
+#        data={"chat_id": chat_id,
+#              "caption": message_caption,
+#              },
+#        files={"document": (f"Houston_{day}.jpeg", data)},
+#        )
 
 def upload_basic(data):
     ### Initializing credits and token for drive
@@ -106,7 +109,7 @@ def main():
     if not r.headers.get("Content-Type", "").startswith("image/"):
         raise RuntimeError(f"GIBS didn't return an image:\n{r.text[:500]}")
     else:
-        send_telegram(r.content)
+        #send_telegram(r.content)
         upload_basic(r.content)
     #open(f"houston_{day}.jpg", "wb").write(r.content)
 
